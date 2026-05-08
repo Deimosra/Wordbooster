@@ -1,0 +1,16 @@
+[Addon]
+Name=Word Booster
+Category=InputMethod
+Version=@PROJECT_VERSION@
+# Library is a bare name (without prefix or .so suffix) so fcitx5 can find
+# the addon under any standard search path:
+#   - $CMAKE_INSTALL_PREFIX/lib/fcitx5/  (system / Nix store install)
+#   - ~/.local/lib/fcitx5/                (user install)
+#   - $XDG_DATA_DIRS/fcitx5/              (resolved via fcitx5 path lookup)
+# This is required for clean integration with fcitx5WithAddons under NixOS,
+# which moves shared libraries into a wrapper-controlled location at build
+# time. An absolute path here would break that override.
+Library=wordbooster
+Type=SharedLibrary
+OnDemand=False
+Configurable=False
