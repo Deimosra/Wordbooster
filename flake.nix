@@ -27,7 +27,7 @@
           nativeBuildInputs = with pkgs; [
             cmake
             pkg-config
-            extra-cmake-modules
+            kdePackages.extra-cmake-modules
           ];
 
           buildInputs = with pkgs; [
@@ -54,7 +54,7 @@
             cmake
             ninja
             pkg-config
-            extra-cmake-modules
+            kdePackages.extra-cmake-modules
             gcc
             gdb
             clang-tools
@@ -70,7 +70,7 @@
           ];
 
           shellHook = ''
-            export CMAKE_PREFIX_PATH="${pkgs.fcitx5}:${pkgs.extra-cmake-modules}:$CMAKE_PREFIX_PATH"
+            export CMAKE_PREFIX_PATH="${pkgs.fcitx5}:${pkgs.kdePackages.extra-cmake-modules}:$CMAKE_PREFIX_PATH"
             echo "wordbooster dev shell"
             echo "Build:  cmake -B build -G Ninja && cmake --build build"
             echo "Test:   ctest --test-dir build --output-on-failure"
